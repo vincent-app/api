@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "rimraf dist && tsc && prisma generate",
+    "postinstall": "prisma generate",
+    "build": "prisma generate && rimraf dist && tsc",
     "start": "nodemon src/index.ts",
     "ts.check": "tsc --project tsconfig.json",
     "test:watch": "cross-env NODE_ENV=test jest --watch",
