@@ -1,0 +1,56 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider     = "mysql"
+  url          = env("DATABASE_URL")
+  relationMode = "prisma"
+}
+
+enum Role {
+  ADMIN
+  USER
+}
+
+enum Gender {
+  MALE
+  FEMALE
+  OTHER
+}
+
+model User {
+  id              String   @id @default(uuid())
+  email           String   @unique
+  // contact info
+  firstName       String
+  lastName        String
+  password        String
+  zipCode         String
+  birthday        DateTime
+  // how many people in the household?
+  householdSize   Int
+  // how many children in the household?
+  childrenCount   Int
+  // what is your household income?
+  householdIncome Int
+  // your height and weight?
+  weightLbs       Int
+  heightFeet      Int
+  heightInches    Int
+  // what is your gender?
+  gender          Gender   @default(OTHER)
+  //  address
+  address         String
+  city            String
+  state           String
+  // phone number
+  phoneNum        String
+  // This will be used for role tracking
+  role            Role     @default(USER)
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+}
