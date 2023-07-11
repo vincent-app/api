@@ -1,7 +1,7 @@
 import { consola } from "consola";
 import { PrismaClient, Prisma } from "@prisma/client";
 
-import express from "./app";
+import app from "../app";
 
 /**
  * Load Prsima Client and connect to Prisma Server if failed to connect, throw error.
@@ -12,7 +12,7 @@ prisma
   .$connect()
   .then(async () => {
     await prisma.$disconnect();
-    express.listen(express.get("port"), () => {
+    app.listen(app.get("port"), () => {
       /**
        *  Log infomation after everything is started.
        */
