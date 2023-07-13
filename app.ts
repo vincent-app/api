@@ -8,6 +8,7 @@ import { config } from "dotenv";
  * Import routes
  */
 import index from "./routes/index";
+import webhook from "./routes/webhook";
 
 const app = express();
 
@@ -41,5 +42,6 @@ app.set("port", process.env.PORT || 8080);
  * Initialize routes
  */
 app.use("/", index);
+app.use("/webhook", webhook);
 
 export default app;

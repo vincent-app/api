@@ -9,7 +9,7 @@ const router = express.Router();
  */
 router.get("/", async (req: Request, res: Response) => {
   res.status(200).json({
-    message: "✅ API is running",
+    message: "✅ Webhook Service is running",
   });
 });
 

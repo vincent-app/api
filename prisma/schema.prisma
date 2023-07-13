@@ -32,15 +32,15 @@ model User {
   zipCode         String
   birthday        DateTime
   // how many people in the household?
-  householdSize   Int
+  householdSize   String
   // how many children in the household?
-  childrenCount   Int
+  childrenCount   String
   // what is your household income?
-  householdIncome Int
+  householdIncome String
   // your height and weight?
-  weightLbs       Int
-  heightFeet      Int
-  heightInches    Int
+  weightLbs       String
+  heightFeet      String
+  heightInches    String
   // what is your gender?
   gender          Gender   @default(OTHER)
   //  address

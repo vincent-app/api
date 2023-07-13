@@ -1,7 +1,7 @@
 import { consola } from "consola";
 import { PrismaClient, Prisma } from "@prisma/client";
 
-import app from "../app";
+import app from "./app";
 
 /**
  * Load Prsima Client and connect to Prisma Server if failed to connect, throw error.
