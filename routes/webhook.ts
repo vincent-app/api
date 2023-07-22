@@ -24,7 +24,8 @@ router.post("/", async (req: Request, res: Response) => {
   //   });
   // }
 
-  //   {"email":"gjgejn@gmail.com","name":"453535 53535","zipCode":"53344","birthday":{"value":"July 26, 1990","unix":648950400},"householdSize":"Ten or more","childrenCount":"One","householdIncome":"3453535","weightLbs":"53535","heightFeet":"3535","heightInches":"353535","gender":"Male","address":"43434||5535345, AL||US","phoneNum":"+16083451434"
+  console.log(req.body);
+
   const firstName = req.body.name.split(" ")[0] as string;
   const lastName = req.body.name.split(" ")[1] as string;
   const email = req.body.email as string;
