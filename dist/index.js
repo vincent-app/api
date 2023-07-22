@@ -29,8 +29,8 @@ prisma
          */
         if (process.env.NODE_ENV !== "test") {
             consola_1.consola.log("----------------------------------------");
-            consola_1.consola.info(`Environment: ${app.get("env")}`);
-            consola_1.consola.info(`App URL: http://${app.get("host")}:${app.get("port")}`);
+            consola_1.consola.info(`Environment: ${app_1.default.get("env")}`);
+            consola_1.consola.info(`App URL: http://${app_1.default.get("host")}:${app_1.default.get("port")}`);
             consola_1.consola.info(`Prisma: Connected`);
             consola_1.consola.log("----------------------------------------");
         }

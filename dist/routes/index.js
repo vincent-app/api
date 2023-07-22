@@ -21,7 +21,7 @@ const router = express_1.default.Router();
  */
 router.get("/", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     res.status(200).json({
-        message: "✅ API is running",
+        message: "✅ Webhook Service is running",
     });
 }));
 exports.default = router;

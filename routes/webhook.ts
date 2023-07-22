@@ -9,6 +9,17 @@ const router = express.Router();
 /**
  * @route /
  * @method GET
+ * @description Simple route to show the webook service is running
+ */
+router.get("/", async (req: Request, res: Response) => {
+  res.status(200).json({
+    message: "✅ Webhook Service is running",
+  });
+});
+
+/**
+ * @route /
+ * @method POST
  * @description Simple route to test the API
  */
 router.post("/", async (req: Request, res: Response) => {

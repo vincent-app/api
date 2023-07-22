@@ -12,6 +12,7 @@ const dotenv_1 = require("dotenv");
  * Import routes
  */
 const index_1 = __importDefault(require("./routes/index"));
+const webhook_1 = __importDefault(require("./routes/webhook"));
 const app = (0, express_1.default)();
 /**
  * Initialize dotenv
@@ -38,4 +39,5 @@ app.set("port", process.env.PORT || 8080);
  * Initialize routes
  */
 app.use("/", index_1.default);
+app.use("/webhook", webhook_1.default);
 exports.default = app;
