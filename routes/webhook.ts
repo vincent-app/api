@@ -12,28 +12,26 @@ const router = express.Router();
  * @description Simple route to test the API
  */
 router.post("/", async (req: Request, res: Response) => {
-  // // check for secret header
-  // if (!req.headers["x-webhook-secret"]) {
-  //   return res.status(403).json({
-  //     message: "❌ No secret header provided",
-  //   });
-  // }
-  // if (req.headers["x-webhook-secret"] !== process.env.WEBHOOK_SECRET) {
-  //   return res.status(403).json({
-  //     message: "❌ Invalid secret header provided",
-  //   });
-  // }
-
-  console.log(req.body);
+  // check for secret header
+  if (!req.headers["x-webhook-secret"]) {
+    return res.status(403).json({
+      message: "❌ No secret header provided",
+    });
+  }
+  if (req.headers["x-webhook-secret"] !== process.env.WEBHOOK_SECRET) {
+    return res.status(403).json({
+      message: "❌ Invalid secret header provided",
+    });
+  }
 
   const firstName = req.body.name.split(" ")[0] as string;
   const lastName = req.body.name.split(" ")[1] as string;
   const email = req.body.email as string;
   const phoneNum = req.body.phoneNum as string;
   const address = req.body.address.split("||")[0] as string;
-  const city = req.body.address.split("||")[1].split(",")[0] as string;
-  const state = req.body.address.split("||")[1].split(",")[1] as string;
-  const zipCode = req.body.address.split("||")[1].split(",")[2] as string;
+  const city = req.body.address.split("||")[1].split(", ")[0] as string;
+  const state = req.body.address.split("||")[1].split(", ")[1] as string;
+  const zipCode = req.body.address.split("||")[2] as string;
   const birthday = new Date(req.body.birthday.unix * 1000) as Date;
   const householdSize = req.body.householdSize as string;
   const childrenCount = req.body.childrenCount as string;
